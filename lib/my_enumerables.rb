@@ -71,6 +71,20 @@ module Enumerable
       return result
     end
   end
+
+  def my_inject(initial_value = nil, &block)
+    accumulator = initial_value
+
+    for item in self
+      if accumulator.nil?
+        accumulator = item
+      else
+        accumulator = block.call(accumulator, item)
+      end
+    end
+
+    return accumulator
+  end
 end
 
 # You will first have to define my_each
