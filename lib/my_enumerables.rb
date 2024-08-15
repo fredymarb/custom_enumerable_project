@@ -37,6 +37,15 @@ module Enumerable
     end
     return false
   end
+
+  def my_none?(&block)
+    return unless block_given?
+
+    for item in self
+      return false if block.call(item)
+    end
+    return true
+  end
 end
 
 # You will first have to define my_each
