@@ -28,6 +28,15 @@ module Enumerable
       return true
     end
   end
+
+  def my_any?(&block)
+    return unless block_given?
+
+    for item in self
+      return true if block.call(item)
+    end
+    return false
+  end
 end
 
 # You will first have to define my_each
