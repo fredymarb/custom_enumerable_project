@@ -19,6 +19,15 @@ module Enumerable
       result
     end
   end
+
+  def my_all?(&block)
+    if block_given?
+      for item in self
+        return false unless block.call(item)
+      end
+      return true
+    end
+  end
 end
 
 # You will first have to define my_each
