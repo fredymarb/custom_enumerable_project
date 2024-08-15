@@ -61,6 +61,16 @@ module Enumerable
     end
     return count
   end
+
+  def my_map(&block)
+    if block_given?
+      result = []
+      for item in self
+        result << block.call(item)
+      end
+      return result
+    end
+  end
 end
 
 # You will first have to define my_each
