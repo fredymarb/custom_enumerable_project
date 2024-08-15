@@ -9,6 +9,16 @@ module Enumerable
       end
     end
   end
+
+  def my_select(&block)
+    if block_given?
+      result = []
+      for item in self
+        result << item if block.call(item)
+      end
+      result
+    end
+  end
 end
 
 # You will first have to define my_each
